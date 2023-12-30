@@ -1,0 +1,4 @@
+alibabacloud_imageseg20191230>=3.0.0, <4.0.0
+alibabacloud_tea_openapi>=0.3.8, <1.0.0
+alibabacloud_tea_console>=0.0.1, <1.0.0
+alibabacloud_tea_util>=0.3.11, <1.0.0
