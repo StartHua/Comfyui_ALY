@@ -12,3 +12,4 @@
 
 (2).需要安装依赖：requirements.txt
 python_embeded\python.exe pip -r install requirements.txt
+![2da457a1d6d40ca81435c71f7f9a13f](https://github.com/StartHua/Comfyui-Mine/assets/22284244/39173f9d-629c-4766-a852-efb358c45d48)
