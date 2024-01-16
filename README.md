@@ -17,4 +17,7 @@ python_embeded\python.exe pip -r install requirements.txt
 
 如果阿里的库安装不上可以到群里获取库直接解压。
 
+链接：https://pan.baidu.com/s/1Wt7fLMktnlwuDCrGeV7DqQ 
+提取码：9c0f
+
 ![2da457a1d6d40ca81435c71f7f9a13f](https://github.com/StartHua/Comfyui-Mine/assets/22284244/39173f9d-629c-4766-a852-efb358c45d48)
