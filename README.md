@@ -13,7 +13,7 @@
 获取 key 填写到 AssetKey.json
 
 (2).需要安装依赖：requirements.txt
-python_embeded\python.exe pip -r install requirements.txt
+python_embeded\python.exe pip  install -r requirements.txt
 
 如果阿里的库安装不上可以到群里获取库直接解压。
 
