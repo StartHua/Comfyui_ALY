@@ -6,7 +6,7 @@
 (2).需要安装依赖：requirements.txt
 python_embeded\python.exe pip install -r requirements.txt
 
-如果阿里的库安装不上可以到群里获取库直接解压。
+如果阿里的库安装不上可以到群里获取库直接解压 ：comfyui路径\python_embeded\Lib\site-packages。
 
 链接：https://pan.baidu.com/s/1Wt7fLMktnlwuDCrGeV7DqQ
 提取码：9c0f
