@@ -1,6 +1,6 @@
 阿里云节点：暂时支持衣服+物体
 
-(1).需要登录阿里云https://help.aliyun.com/zh/viapi/developer-reference/api-clothing-segmentation?spm=a2c4g.11186623.0.0.2b14193eJd1HnE
+(1).需要登录阿里云https://vision.aliyun.com/imageseg?spm=api-workbench.api_explorer.0.0.604ce85cenrYuD
 获取 key 填写到 AssetKey.json
 
 (2).需要安装依赖：requirements.txt
