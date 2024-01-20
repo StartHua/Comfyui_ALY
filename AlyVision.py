@@ -51,7 +51,7 @@ class AlyVision_imageseg:
         @throws Exception
         """
         # 读取json文件
-        with open(key_json, 'r') as file:
+        with open(key_json, 'r', encoding='utf-8') as file:
             data = json.load(file)
         access_key_id = data["access_key_id"] 
         access_key_secret = data["access_key_secret"]  
