@@ -83,9 +83,7 @@ class ALY_Seg_Cloth:
             print(other_cloth)
         except Exception as error:
             # 获取整体报错信息
-            print(error)
-            # 获取单个字段
-            print(error.code)
+             print(error.message)
             
         source_img = img_from_url(image_url)
         if other_cloth == None:

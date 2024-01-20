@@ -28,6 +28,11 @@ def save_tensor_image(img,path):
     pil_image = tensor2pil(img)
     pil_image.save(path)
     
+def ioBytes_to_tensor(bytes):
+    image = Image.open(bytes)
+    return pil2tensor(image)
+
+    
 # Flutter ImageFilter 所使用的模糊算法高斯模糊
 def gaussian_region(image, radius=5.0):
             image = ImageOps.invert(image.convert("L"))
