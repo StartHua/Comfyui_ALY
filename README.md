@@ -19,9 +19,6 @@ python_embeded\python.exe pip install -r requirements.txt
 
 CXH 节点名称
 
-链接：https://pan.baidu.com/s/1Wt7fLMktnlwuDCrGeV7DqQ
-提取码：9c0f
-
 ![1705759496868](https://github.com/StartHua/Comfyui_ALY/assets/22284244/29ac156d-7513-402b-8dff-b0fb895d7f0e)
 
 
