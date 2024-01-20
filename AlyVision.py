@@ -11,7 +11,7 @@ from alibabacloud_tea_util.client import Client as UtilClient
 
 comfy_path = os.path.dirname(folder_paths.__file__)
 custom_nodes_path = os.path.join(comfy_path, "custom_nodes")
-mine_path =  os.path.join(custom_nodes_path, "Comfyui-Mine")
+mine_path =  os.path.join(custom_nodes_path, "Comfyui_ALY")
 key_json = os.path.join(mine_path, "AssetKey.json")
 
 class AlyVision_imageseg:

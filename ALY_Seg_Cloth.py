@@ -4,38 +4,21 @@ MAX_RESOLUTION=8192
 from typing import List
 
 from .AlyVision import imagese
-from alibabacloud_imageseg20191230.client import Client
 from alibabacloud_imageseg20191230.models import SegmentClothAdvanceRequest
-from alibabacloud_tea_openapi.models import Config
 from alibabacloud_tea_util.models import RuntimeOptions
 
 
 import os
-import io
-import sys
-import re
-import json
-import time
-import torch
-import psutil
-import random
 import datetime
-import comfy.sd
-import comfy.utils
 import numpy as np
 import folder_paths
-import comfy.samplers
-import latent_preview
 import comfy.model_base
 from pathlib import Path
-import comfy.model_management
 from urllib.request import urlopen
 from collections import defaultdict
 from PIL.PngImagePlugin import PngInfo
 from PIL import Image, ImageDraw, ImageFont
-from typing import Dict, List, Optional, Tuple, Union, Any
 import nodes
-from PIL import Image,ImageOps
 
 from .utils import *
 
@@ -44,7 +27,7 @@ custom_nodes_path = os.path.join(comfy_path, "custom_nodes")
 
 
 
-class CXH_ALY_Seg_Cloth:
+class ALY_Seg_Cloth:
    
     def __init__(self):
         pass
@@ -54,26 +37,30 @@ class CXH_ALY_Seg_Cloth:
         return {"required":
                 {
                 "cloth_type":   (["None","tops", "coat","skirt","pants","bag","shoes","hat"],{"default":"None"}  ),     
-                "image_path": ("STRING",{"default": "","multiline": False}), 
+                "image":("IMAGE", {"default": "","multiline": False}),
                 "return_form":   (["whiteBK", "mask"],{"default":"mask"} ),     
                 }
         }
 
     RETURN_TYPES = ("IMAGE","IMAGE")
-    RETURN_NAMES = ("source","class")
+    RETURN_NAMES = ("cloth","part")
     OUTPUT_NODE = True
     FUNCTION = "sample"
     CATEGORY = "CXH"
 
-    def sample(self,cloth_type,image_path,return_form):
-    
-        if not os.path.exists(image_path):
-            print("文件不存在:" + image_path)
-            return
-        im = open(image_path, 'rb')
+    def sample(self,cloth_type,image,return_form):
+        
+        now = datetime.datetime.now()
+        date_str = now.strftime("%Y-%m-%d")
+        folder_path = os.path.join(custom_nodes_path,"Comfyui_ALY","cache",f"{date_str}.jpg")
 
+        # 零时缓存转换成阿里io.buff
+        save_tensor_image(image,folder_path)
+        
+        imp1 = open(folder_path, 'rb')
+        
         segment_cloth_request = SegmentClothAdvanceRequest()
-        segment_cloth_request.image_urlobject =im
+        segment_cloth_request.image_urlobject =imp1
         #设置子类
         if cloth_type != "None":
             segment_cloth_request.cloth_class = [cloth_type]
