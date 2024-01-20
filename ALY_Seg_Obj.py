@@ -77,7 +77,9 @@ class ALY_Seg_Obj:
             image_url = response.body.data.image_url
         except Exception as error:
             # 获取整体报错信息
-            print(error.message)
+            print("==========错误 start===========")
+            print(error)
+            print("==========错误 end===========")
         
             
         img = io.BytesIO(urlopen(image_url).read())
