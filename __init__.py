@@ -12,5 +12,5 @@ NODE_CLASS_MAPPINGS = {
 # A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
     "ALY_Seg_Cloth":"ALY_Seg_Cloth",
-    "ALY_Seg_Obj":ALY_Seg_Obj
+    "ALY_Seg_Obj":"ALY_Seg_Obj"
 }
