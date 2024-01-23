@@ -84,6 +84,7 @@ class ALY_Seg_Obj:
             
         img = io.BytesIO(urlopen(image_url).read())
         image2 = Image.open(img)  
+        image2 = image2.convert("RGB")
         source_img = pil2tensor(image2)
         # 返回最好2个，不然图片容易出问题
         return (source_img,back_type)
