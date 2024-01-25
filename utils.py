@@ -72,6 +72,25 @@ def save_images(img_list, folder):
         cv2.imwrite(save_path, img[..., ::-1])
 
 
+# 未测试
+def save_tensors_images(img_tensors, img_names, save_dir):
+    for img_tensor, img_name in zip(img_tensors, img_names):
+        tensor = (img_tensor.clone()+1)*0.5 * 255
+        tensor = tensor.cpu().clamp(0,255)
+
+        try:
+            array = tensor.numpy().astype('uint8')
+        except:
+            array = tensor.detach().numpy().astype('uint8')
+
+        if array.shape[0] == 1:
+            array = array.squeeze(0)
+        elif array.shape[0] == 3:
+            array = array.swapaxes(0, 1).swapaxes(1, 2)
+
+        im = Image.fromarray(array)
+        im.save(os.path.join(save_dir, img_name), format='JPEG')
+
 def check_channels(image):
     channels = image.shape[2] if len(image.shape) == 3 else 1
     if channels == 1:
@@ -94,3 +113,12 @@ def resize_image(img, max_length=768):
     height, width = img.shape[:2]
     img = cv2.resize(img, (width-(width % 64), height-(height % 64)))
     return img
+
+# 未测试
+def gen_noise(shape):
+    noise = np.zeros(shape, dtype=np.uint8)
+    ### noise
+    noise = cv2.randn(noise, 0, 255)
+    noise = np.asarray(noise / 255, dtype=np.uint8)
+    noise = torch.tensor(noise, dtype=torch.float32)
+    return noise
